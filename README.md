@@ -52,8 +52,13 @@ Squarespace **Domains** panel, not in Squarespace's website builder.
 If deploying to Netlify or Vercel instead, use that host's own apex/CNAME target in step 3 (both show you the exact records to add once you add the domain in their dashboard) — the Squarespace-side steps 1-2 and 4-6 are the same.
 
 ## Grooming backlog
-- [ ] Swap placeholder `.art-canvas` gradient tiles in the gallery for real photos of Kat's work
+- [x] Swap the "pets" placeholder `.art-canvas` tiles for real photos — still needed for portraits/fantasy/sketches
 - [ ] Replace the About section bio text with Kat's own
-- [ ] Set up a real inbox or form for the commission CTA (currently a `mailto:` link) — e.g. a Formspree/Tally form, since this is a static site with no backend
+- [ ] **Commission form needs a real Formspree ID.** The form in `#commission` posts to `https://formspree.io/f/YOUR_FORM_ID`, a placeholder — it will not send anywhere until you:
+  1. Sign up free at [formspree.io](https://formspree.io), create a form, and confirm the notification email.
+  2. Copy the real endpoint it gives you (`https://formspree.io/f/xxxxxxxx`) and replace `YOUR_FORM_ID` in `index.html`'s `<form action="...">`.
+  3. Check Formspree's current plan limits for file uploads (attachment size/count caps vary by plan and change over time) — the site enforces its own client-side limit (5 files, 10MB each, set via `MAX_COMMISSION_FILES`/`MAX_COMMISSION_FILE_MB` in the `<script>` at the bottom of `index.html`), but the form will still fail silently if Formspree's own limit is lower. Adjust the JS constants to match whatever Formspree actually allows.
+  4. The `mailto:hello@lilackatcreatives.com` fallback link under the form works today regardless, so the page isn't broken in the meantime.
+- [ ] The Instagram link in the About section (`<a href="#" class="instagram-link">`) is a placeholder — point it at Kat's real profile URL once she has one to link.
 - [ ] Add real Open Graph / social preview image (currently text-only meta tags)
 - [ ] Add a favicon/social image once brand assets exist (currently an inline placeholder "K" mark)

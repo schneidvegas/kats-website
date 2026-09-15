@@ -138,14 +138,14 @@
   }
   .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
   .btn-primary {
-    background: var(--marigold);
+    background: var(--coral);
     color: var(--plum);
     padding: 15px 30px;
     border-radius: 3px 16px 3px 16px;
     font-weight: 600;
     display: inline-block;
   }
-  .btn-primary:hover { background: var(--coral); }
+  .btn-primary:hover { background: var(--marigold); }
   .btn-secondary {
     border: 1.5px solid var(--line);
     padding: 15px 30px;
@@ -235,21 +235,27 @@
   }
 
   .gallery-grid {
-    columns: 3 260px;
-    column-gap: 22px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 22px;
   }
   .art-card {
-    break-inside: avoid;
-    margin-bottom: 22px;
-    border-radius: 4px 20px 4px 20px;
-    overflow: hidden;
     position: relative;
     cursor: default;
     transition: transform 0.25s ease;
   }
   .art-card:hover { transform: translateY(-4px); }
+
+  .art-media {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border-radius: 4px 20px 4px 20px;
+    border: 2px solid var(--marigold);
+  }
+  .art-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .art-canvas {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: flex-end;
     padding: 16px;
@@ -263,16 +269,12 @@
   }
   .art-card figcaption strong { color: var(--paper); display: block; font-size: 0.95rem; margin-bottom: 2px; }
 
-  .art-card[data-cat="pets"] .art-canvas { background: linear-gradient(155deg, #F2A93B, #FF6B5B); height: 300px; }
-  .art-card[data-cat="portraits"] .art-canvas { background: linear-gradient(155deg, #6B4A9E, #D97BB0); height: 340px; }
-  .art-card[data-cat="fantasy"] .art-canvas { background: linear-gradient(155deg, #2B1B3D, #6B4A9E); height: 260px; }
-  .art-card[data-cat="sketches"] .art-canvas { background: linear-gradient(155deg, #C9A8E0, #3D2657); height: 220px; }
-  .art-card[data-cat="pets"]:nth-child(4n) .art-canvas { height: 240px; }
-  .art-card[data-cat="portraits"]:nth-child(3n) .art-canvas { height: 280px; }
+  .art-card[data-cat="pets"] .art-canvas { background: linear-gradient(155deg, #F2A93B, #FF6B5B); }
+  .art-card[data-cat="portraits"] .art-canvas { background: linear-gradient(155deg, #6B4A9E, #D97BB0); }
+  .art-card[data-cat="fantasy"] .art-canvas { background: linear-gradient(155deg, #2B1B3D, #6B4A9E); }
+  .art-card[data-cat="sketches"] .art-canvas { background: linear-gradient(155deg, #C9A8E0, #3D2657); }
 
   .art-card.hidden { display: none; }
-
-  .art-card img { width: 100%; display: block; }
 
   .swap-note {
     margin-top: 30px;
@@ -302,6 +304,45 @@
   .step h3 { font-size: 1.1rem; margin-bottom: 6px; font-weight: 600; }
   .step p { font-size: 0.92rem; color: var(--lilac-muted); }
 
+  /* ---------- Commission form ---------- */
+  .commission-form { margin-top: 8px; max-width: 560px; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: var(--lilac-muted);
+    margin-bottom: 18px;
+  }
+  .form-field span { font-weight: 600; color: var(--paper); }
+  .form-field em { font-style: normal; font-weight: 400; opacity: 0.7; }
+  .form-field input[type="text"],
+  .form-field input[type="email"],
+  .form-field textarea {
+    background: rgba(245,239,230,0.06);
+    border: 1.5px solid var(--line);
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: var(--paper);
+    font-family: inherit;
+    font-size: 0.95rem;
+  }
+  .form-field input[type="file"] { color: var(--lilac-muted); font-size: 0.85rem; }
+  .form-field textarea { resize: vertical; }
+  .commission-form button.btn-primary { border: none; cursor: pointer; font-size: 0.95rem; }
+  .form-error { color: var(--coral); font-size: 0.85rem; margin: -8px 0 14px; }
+  .form-fallback { margin-top: 16px; font-size: 0.85rem; color: var(--lilac-muted); }
+  .form-fallback a { text-decoration: underline; }
+
+  @media (max-width: 520px) {
+    .form-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Instagram link ---------- */
+  .instagram-link { color: var(--marigold); font-weight: 600; display: inline-block; }
+  .instagram-link:hover { color: var(--coral); }
+
   /* ---------- Contact / Footer ---------- */
   footer {
     padding: 60px 0 40px;
@@ -330,12 +371,10 @@
     .hero-canvas-stack { height: 320px; margin-top: 20px; }
     .nav-links { display: none; }
     .commission-steps { grid-template-columns: 1fr; }
-    .gallery-grid { columns: 2 200px; }
   }
 
   @media (max-width: 520px) {
     .wrap { padding: 0 20px; }
-    .gallery-grid { columns: 1; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -398,16 +437,16 @@
     </div>
 
     <div class="gallery-grid" id="galleryGrid">
-      <figure class="art-card" data-cat="pets"><img src="images/pet-portrait-dog-lilies.jpg" alt="Painted portrait of a light-colored dog with its tongue out, surrounded by pink lily flowers, on a blue background" loading="lazy"><figcaption><strong>Commissioned pet portrait</strong>Hand-painted commission</figcaption></figure>
-      <figure class="art-card" data-cat="portraits"><div class="art-canvas">figure study</div><figcaption><strong>Figure study</strong>Gouache, 11×14"</figcaption></figure>
-      <figure class="art-card" data-cat="fantasy"><div class="art-canvas">moth spirit</div><figcaption><strong>Moth spirit</strong>Digital, personal work</figcaption></figure>
-      <figure class="art-card" data-cat="pets"><img src="images/pet-portrait-cat-forgetmenots.jpg" alt="Painted portrait of a black and white cat surrounded by blue forget-me-not flowers, in a black frame" loading="lazy"><figcaption><strong>Commissioned pet portrait</strong>Hand-painted commission</figcaption></figure>
-      <figure class="art-card" data-cat="sketches"><div class="art-canvas">hands study</div><figcaption><strong>Hands, study</strong>Graphite</figcaption></figure>
-      <figure class="art-card" data-cat="portraits"><div class="art-canvas">anniversary portrait</div><figcaption><strong>Anniversary commission</strong>Oil on canvas, 18×24"</figcaption></figure>
-      <figure class="art-card" data-cat="fantasy"><div class="art-canvas">forest guardian</div><figcaption><strong>Forest guardian</strong>Digital, personal work</figcaption></figure>
-      <figure class="art-card" data-cat="pets"><img src="images/pet-portrait-dog-ferns.jpg" alt="Painted portrait of a white and black dog with fern fronds, in a lime green bordered frame" loading="lazy"><figcaption><strong>Commissioned pet portrait</strong>Hand-painted commission</figcaption></figure>
-      <figure class="art-card" data-cat="sketches"><div class="art-canvas">gesture sketches</div><figcaption><strong>Gesture sketches</strong>Ink, sketchbook page</figcaption></figure>
-      <figure class="art-card" data-cat="portraits"><div class="art-canvas">self portrait</div><figcaption><strong>Self portrait</strong>Oil on panel, 12×12"</figcaption></figure>
+      <figure class="art-card" data-cat="pets"><div class="art-media"><img src="images/pet-portrait-dog-lilies.jpg" alt="Painted portrait of a light-colored dog with its tongue out, surrounded by pink lily flowers, on a blue background" loading="lazy"></div><figcaption><strong>Commissioned pet portrait</strong>Hand-painted commission</figcaption></figure>
+      <figure class="art-card" data-cat="portraits"><div class="art-media"><div class="art-canvas">figure study</div></div><figcaption><strong>Figure study</strong>Gouache, 11×14"</figcaption></figure>
+      <figure class="art-card" data-cat="fantasy"><div class="art-media"><div class="art-canvas">moth spirit</div></div><figcaption><strong>Moth spirit</strong>Digital, personal work</figcaption></figure>
+      <figure class="art-card" data-cat="pets"><div class="art-media"><img src="images/pet-portrait-cat-forgetmenots.jpg" alt="Painted portrait of a black and white cat surrounded by blue forget-me-not flowers, in a black frame" loading="lazy"></div><figcaption><strong>Commissioned pet portrait</strong>Hand-painted commission</figcaption></figure>
+      <figure class="art-card" data-cat="sketches"><div class="art-media"><div class="art-canvas">hands study</div></div><figcaption><strong>Hands, study</strong>Graphite</figcaption></figure>
+      <figure class="art-card" data-cat="portraits"><div class="art-media"><div class="art-canvas">anniversary portrait</div></div><figcaption><strong>Anniversary commission</strong>Oil on canvas, 18×24"</figcaption></figure>
+      <figure class="art-card" data-cat="fantasy"><div class="art-media"><div class="art-canvas">forest guardian</div></div><figcaption><strong>Forest guardian</strong>Digital, personal work</figcaption></figure>
+      <figure class="art-card" data-cat="pets"><div class="art-media"><img src="images/pet-portrait-dog-ferns.jpg" alt="Painted portrait of a white and black dog with fern fronds, in a lime green bordered frame" loading="lazy"></div><figcaption><strong>Commissioned pet portrait</strong>Hand-painted commission</figcaption></figure>
+      <figure class="art-card" data-cat="sketches"><div class="art-media"><div class="art-canvas">gesture sketches</div></div><figcaption><strong>Gesture sketches</strong>Ink, sketchbook page</figcaption></figure>
+      <figure class="art-card" data-cat="portraits"><div class="art-media"><div class="art-canvas">self portrait</div></div><figcaption><strong>Self portrait</strong>Oil on panel, 12×12"</figcaption></figure>
     </div>
 
     <p class="swap-note">The remaining tiles are placeholder canvases standing in for real photos of Kat's work, swap the <code>.art-canvas</code> divs for <code>&lt;img&gt;</code> tags pointing at real image files as more come in.</p>
@@ -421,6 +460,7 @@
       <h2 style="font-size: clamp(1.8rem, 3.4vw, 2.4rem); margin-bottom: 20px;">Kat</h2>
       <p style="opacity:0.85; margin-bottom:18px;">Working across oil, gouache, watercolor, and digital, Kat builds each piece from the reference photos and details a client sends over — a favorite dog, a family portrait, a creature that's only existed in someone's head until now.</p>
       <p style="opacity:0.85;">Replace this paragraph with Kat's own bio, training, and the story behind the work.</p>
+      <p style="margin-top:22px;"><a href="#" class="instagram-link">Follow Kat on Instagram →</a></p>
     </div>
     <div class="hero-canvas-stack" style="height:320px;" aria-hidden="true">
       <div class="canvas-tile tile-2" style="top:20px; left:20px;">studio photo</div>
@@ -450,7 +490,29 @@
         </div>
       </div>
 
-      <a href="mailto:hello@lilackatcreatives.com" class="btn-primary">Email to start a commission</a>
+      <form class="commission-form" id="commissionForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+        <div class="form-grid">
+          <label class="form-field">
+            <span>Your name</span>
+            <input type="text" name="name" required>
+          </label>
+          <label class="form-field">
+            <span>Your email</span>
+            <input type="email" name="email" required>
+          </label>
+        </div>
+        <label class="form-field">
+          <span>What are you picturing?</span>
+          <textarea name="details" rows="4" placeholder="e.g. a watercolor portrait of my dog, about 11×14&quot;, based on the attached photos" required></textarea>
+        </label>
+        <label class="form-field">
+          <span>Reference photos <em>(up to 5 files, 10MB each)</em></span>
+          <input type="file" name="attachments" accept="image/*" multiple id="commissionFiles">
+        </label>
+        <p class="form-error" id="commissionFileError" hidden></p>
+        <button type="submit" class="btn-primary">Send commission request</button>
+        <p class="form-fallback">Prefer email? Reach out directly at <a href="mailto:hello@lilackatcreatives.com">hello@lilackatcreatives.com</a>.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -491,6 +553,38 @@
       });
     });
   });
+
+  const MAX_COMMISSION_FILES = 5;
+  const MAX_COMMISSION_FILE_MB = 10;
+  const commissionFiles = document.getElementById('commissionFiles');
+  const commissionFileError = document.getElementById('commissionFileError');
+  const commissionForm = document.getElementById('commissionForm');
+
+  function validateCommissionFiles() {
+    const files = Array.from(commissionFiles.files);
+    if (files.length > MAX_COMMISSION_FILES) {
+      commissionFileError.textContent = `Please attach at most ${MAX_COMMISSION_FILES} files.`;
+      commissionFileError.hidden = false;
+      return false;
+    }
+    const tooBig = files.find(f => f.size > MAX_COMMISSION_FILE_MB * 1024 * 1024);
+    if (tooBig) {
+      commissionFileError.textContent = `"${tooBig.name}" is over ${MAX_COMMISSION_FILE_MB}MB. Please attach a smaller file.`;
+      commissionFileError.hidden = false;
+      return false;
+    }
+    commissionFileError.hidden = true;
+    return true;
+  }
+
+  if (commissionFiles) {
+    commissionFiles.addEventListener('change', validateCommissionFiles);
+    commissionForm.addEventListener('submit', (e) => {
+      if (!validateCommissionFiles()) {
+        e.preventDefault();
+      }
+    });
+  }
 </script>
 
 </body>
