@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lilac Kat Creatives — Original Art & Commissions</title>
 <meta name="description" content="Original illustration and custom commissions by Kat — pet portraits, portraits, fantasy pieces, and sketches in oil, gouache, watercolor, and digital.">
-<meta name="theme-color" content="#2B1B3D">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="canonical" href="https://lilackatcreatives.com/">
 
 <meta property="og:type" content="website">
@@ -14,19 +14,21 @@
 <meta property="og:url" content="https://lilackatcreatives.com/">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%232B1B3D%22/><text x=%2250%22 y=%2266%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%23F2A93B%22 font-family=%22serif%22>K</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%2296%22 height=%2296%22 x=%222%22 y=%222%22 rx=%2220%22 fill=%22%23FFFFFF%22 stroke=%22%231A1A1A%22 stroke-width=%226%22/><text x=%2250%22 y=%2266%22 font-size=%2258%22 text-anchor=%22middle%22 fill=%22%23E2672A%22 font-family=%22sans-serif%22 font-weight=%22bold%22>K</text></svg>">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --plum: #2B1B3D;
-    --plum-panel: #3D2657;
-    --marigold: #F2A93B;
-    --coral: #FF6B5B;
-    --paper: #F5EFE6;
-    --lilac-muted: #C9A8E0;
-    --line: rgba(245, 239, 230, 0.16);
+    /* MODERN THEME PREVIEW: white/black/pop palette, Little Bear-inspired */
+    --plum: #FFFFFF;
+    --plum-panel: #F5F1E8;
+    --marigold: #E8B23D;
+    --coral: #E2672A;
+    --paper: #1A1A1A;
+    --lilac-muted: #4F726E;
+    --teal: #2F8F8B;
+    --line: rgba(26, 26, 26, 0.18);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,8 +44,8 @@
   }
 
   h1, h2, h3, .display {
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
     line-height: 1.05;
     letter-spacing: -0.01em;
   }
@@ -63,9 +65,8 @@
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(43, 27, 61, 0.88);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 3px solid var(--paper);
   }
   nav .wrap {
     display: flex;
@@ -74,12 +75,11 @@
     height: 76px;
   }
   .brand {
-    font-family: 'Fraunces', serif;
-    font-size: 1.35rem;
-    font-weight: 600;
-    font-style: italic;
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
   }
-  .brand span { color: var(--marigold); font-style: normal; }
+  .brand span { color: var(--coral); }
   .nav-links {
     display: flex;
     gap: 36px;
@@ -94,14 +94,15 @@
   .nav-links a:hover { opacity: 1; }
   .nav-cta {
     background: var(--coral);
-    color: var(--plum);
+    color: #FFFFFF;
     padding: 10px 22px;
     border-radius: 3px 14px 3px 14px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9rem;
     white-space: nowrap;
+    border: 3px solid var(--paper);
   }
-  .nav-cta:hover { background: var(--marigold); }
+  .nav-cta:hover { background: var(--marigold); color: var(--paper); }
   .menu-toggle { display: none; background: none; border: none; color: var(--paper); font-size: 1.6rem; cursor: pointer; }
 
   /* ---------- Hero ---------- */
@@ -126,8 +127,9 @@
     margin-bottom: 24px;
   }
   .hero h1 em {
-    font-style: italic;
+    font-style: normal;
     color: var(--marigold);
+    -webkit-text-stroke: 1.5px var(--paper);
   }
   .hero p.lede {
     font-size: 1.15rem;
@@ -139,21 +141,23 @@
   .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
   .btn-primary {
     background: var(--coral);
-    color: var(--plum);
+    color: #FFFFFF;
     padding: 15px 30px;
     border-radius: 3px 16px 3px 16px;
-    font-weight: 600;
+    font-weight: 700;
     display: inline-block;
+    border: 3px solid var(--paper);
   }
-  .btn-primary:hover { background: var(--marigold); }
+  .btn-primary:hover { background: var(--marigold); color: var(--paper); }
   .btn-secondary {
-    border: 1.5px solid var(--line);
+    border: 3px solid var(--paper);
+    color: var(--paper);
     padding: 15px 30px;
     border-radius: 3px 16px 3px 16px;
-    font-weight: 600;
+    font-weight: 700;
     display: inline-block;
   }
-  .btn-secondary:hover { border-color: var(--paper); }
+  .btn-secondary:hover { background: var(--paper); color: #FFFFFF; }
 
   .hero-canvas-stack {
     position: relative;
@@ -162,31 +166,32 @@
   .canvas-tile {
     position: absolute;
     border-radius: 4px 22px 4px 22px;
-    box-shadow: 0 24px 50px rgba(0,0,0,0.35);
+    border: 4px solid var(--paper);
+    box-shadow: 6px 6px 0 var(--paper);
     display: flex;
     align-items: flex-end;
     padding: 18px;
     font-size: 0.8rem;
-    color: rgba(245,239,230,0.75);
+    color: rgba(255,255,255,0.9);
   }
   .tile-1 {
     width: 240px; height: 300px;
     top: 0; left: 40px;
-    background: linear-gradient(150deg, #D97BB0, #F2A93B);
+    background: linear-gradient(150deg, #E2672A, #E8B23D);
     transform: rotate(-6deg);
     z-index: 2;
   }
   .tile-2 {
     width: 220px; height: 260px;
     top: 90px; right: 0;
-    background: linear-gradient(160deg, #6B4A9E, #2B1B3D 80%);
+    background: linear-gradient(160deg, #2F8F8B, #1A1A1A 80%);
     transform: rotate(5deg);
     z-index: 1;
   }
   .tile-3 {
     width: 190px; height: 190px;
     bottom: 0; left: 100px;
-    background: linear-gradient(140deg, #FF6B5B, #F2A93B);
+    background: linear-gradient(140deg, #2F8F8B, #E8B23D);
     transform: rotate(3deg);
     z-index: 3;
   }
@@ -223,7 +228,7 @@
   }
   .filter-pill {
     background: transparent;
-    border: 1.5px solid var(--line);
+    border: 2.5px solid var(--paper);
     color: var(--paper);
     padding: 10px 20px;
     border-radius: 30% 12% 30% 12% / 60% 20% 60% 20%;
@@ -233,11 +238,11 @@
     cursor: pointer;
     transition: border-color 0.2s, background 0.2s, color 0.2s;
   }
-  .filter-pill:hover { border-color: var(--paper); }
+  .filter-pill:hover { background: var(--plum-panel); }
   .filter-pill.active {
     background: var(--marigold);
-    border-color: var(--marigold);
-    color: var(--plum);
+    border-color: var(--paper);
+    color: var(--paper);
   }
 
   .gallery-grid {
@@ -256,7 +261,7 @@
     aspect-ratio: 4 / 5;
     overflow: hidden;
     border-radius: 4px 20px 4px 20px;
-    border: 2px solid var(--marigold);
+    border: 3px solid var(--paper);
   }
   .art-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .art-canvas {
@@ -275,10 +280,10 @@
   }
   .art-card figcaption strong { color: var(--paper); display: block; font-size: 0.95rem; margin-bottom: 2px; }
 
-  .art-card[data-cat="pets"] .art-canvas { background: linear-gradient(155deg, #F2A93B, #FF6B5B); }
-  .art-card[data-cat="portraits"] .art-canvas { background: linear-gradient(155deg, #6B4A9E, #D97BB0); }
-  .art-card[data-cat="fantasy"] .art-canvas { background: linear-gradient(155deg, #2B1B3D, #6B4A9E); }
-  .art-card[data-cat="sketches"] .art-canvas { background: linear-gradient(155deg, #C9A8E0, #3D2657); }
+  .art-card[data-cat="pets"] .art-canvas { background: linear-gradient(155deg, #E8B23D, #E2672A); }
+  .art-card[data-cat="portraits"] .art-canvas { background: linear-gradient(155deg, #2F8F8B, #E2672A); }
+  .art-card[data-cat="fantasy"] .art-canvas { background: linear-gradient(155deg, #1A1A1A, #2F8F8B); }
+  .art-card[data-cat="sketches"] .art-canvas { background: linear-gradient(155deg, #E8B23D, #1A1A1A); }
 
   .art-card.hidden { display: none; }
 
@@ -326,8 +331,8 @@
   .form-field input[type="text"],
   .form-field input[type="email"],
   .form-field textarea {
-    background: rgba(245,239,230,0.06);
-    border: 1.5px solid var(--line);
+    background: var(--plum-panel);
+    border: 2px solid var(--paper);
     border-radius: 6px;
     padding: 10px 12px;
     color: var(--paper);
@@ -336,7 +341,7 @@
   }
   .form-field input[type="file"] { color: var(--lilac-muted); font-size: 0.85rem; }
   .form-field textarea { resize: vertical; }
-  .commission-form button.btn-primary { border: none; cursor: pointer; font-size: 0.95rem; }
+  .commission-form button.btn-primary { cursor: pointer; font-size: 0.95rem; }
   .form-error { color: var(--coral); font-size: 0.85rem; margin: -8px 0 14px; }
   .form-fallback { margin-top: 16px; font-size: 0.85rem; color: var(--lilac-muted); }
   .form-fallback a { text-decoration: underline; }
@@ -352,7 +357,7 @@
   /* ---------- Contact / Footer ---------- */
   footer {
     padding: 60px 0 40px;
-    border-top: 1px solid var(--line);
+    border-top: 3px solid var(--paper);
   }
   footer .wrap {
     display: flex;
@@ -369,7 +374,7 @@
   .footer-bottom {
     margin-top: 40px;
     font-size: 0.8rem;
-    color: rgba(245,239,230,0.45);
+    color: rgba(26,26,26,0.5);
   }
 
   @media (max-width: 860px) {
